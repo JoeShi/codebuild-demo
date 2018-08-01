@@ -6,6 +6,7 @@ phases:
       - echo Entered the install phase...
       - npm install gitbook-cli -g
       - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo $CODEBUILD_SOURCE_REPO_URL
   pre_build:
     commands:
       - echo Entered the pre_build phase...
