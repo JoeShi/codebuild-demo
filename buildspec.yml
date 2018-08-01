@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Entered the install phase...
       - npm install gitbook-cli -g
-      - echo $CODEBUILD_SOURCE_VERSION
+      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
   pre_build:
     commands:
       - echo Entered the pre_build phase...
@@ -19,7 +19,7 @@ phases:
     commands:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
-      - aws s3 sync _book/ s3://im-joeshi-aws/codebuild/$CODEBUILD_SOURCE_VERSION/  --delete --exclude ".git/*"
+      - aws s3 sync _book/ s3://im-joeshi-aws/codebuild/$CODEBUILD_RESOLVED_SOURCE_VERSION/  --delete --exclude ".git/*"
 artifacts:
   files:
     - _book/**/*
